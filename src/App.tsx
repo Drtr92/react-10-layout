@@ -1,10 +1,9 @@
 import GlobalStyle from "./styles/GlobalStyle.ts";
 import styled from "styled-components";
-import { BrowserRouter, Route, Routes } from "react-router";
-import About from "./pages/About.tsx";
-import Home from "./pages/Home.tsx";
+import { RouterProvider } from "react-router";
 import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
+import AppRouter from "./router/AppRouter.tsx";
 
 const Wrap = styled.div`
     display: flex;
@@ -13,23 +12,18 @@ const Wrap = styled.div`
 `;
 
 /*
-    이 아래는 Function 줄
+    이 아래는 Function 줄  // P.S : Provider는 제공자 라는 뜻이다.
 */
 
 function App() {
     return (
         <>
             <GlobalStyle />
-            <BrowserRouter>
                 <Wrap>
                     <Header />
-                    <Routes>
-                        <Route path={"/"} element={<Home />} />
-                        <Route path={"/About"} element={<About />} />
-                    </Routes>
+                    <RouterProvider router={AppRouter()} />
                     <Footer />
                 </Wrap>
-            </BrowserRouter>
         </>
     );
 }
