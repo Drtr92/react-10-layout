@@ -11,12 +11,12 @@ const Wrap = styled.div`
     color: ${props => props.theme.color.text};
 `;
 
-function MainLayout({toggleTheme} : {toggleTheme: () => void}) {
+function MainLayout() {
     // outlet
     // 이 자리에 Routes의 내용이 들어올 자리라는걸 표현하는 기능
     return (
         <Wrap>
-            <Header toggleTheme={toggleTheme} />
+            <Header />
             <Outlet />
             <Footer />
         </Wrap>
