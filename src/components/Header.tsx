@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import styled from "styled-components";
 import {useContext} from "react";
 import {ThemeContext} from "../contexts/theme/ThemeContexts.tsx";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Head = styled.header`
     display: flex;
@@ -46,7 +47,13 @@ function Header() {
                 <NavRight>
                     <Link to={"/auth/login"}>로그인</Link>
                     <Link to={"/auth/signup"}>회원가입</Link>
-                    <button onClick={themeContext.toggleTheme}>테마토글</button>
+                    <button onClick={themeContext.toggleTheme}>
+                        {themeContext.theme === "dark" ? (
+                            <FaMoon size={25} color={"#D36539"} />
+                        ) : (
+                            <FaSun size={25} color={"#D36539"} />
+                        )}
+                    </button>
                 </NavRight>
             </Head>
             {/* Head 끝 */}
